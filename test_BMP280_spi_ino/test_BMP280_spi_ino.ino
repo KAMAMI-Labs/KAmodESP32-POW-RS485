@@ -1,6 +1,7 @@
-//board: ESP32-WROOM-DA Module
 //example code for KAmodESP32 POW RS485 and KAmod BMP280
 //https://wiki.kamamilabs.com/index.php?title=KAmodESP32_POW_RS485_(PL)
+
+//ino board: ESP32-WROOM-DA Module
 
 #include <Wire.h>
 #include <SPI.h>
@@ -27,15 +28,15 @@ int i;
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("Hello. KAmod BMP280 test start");
+  Serial.println("\r\r\rHello. KAmod BMP280 test start");
 
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, HIGH);
 
-  Serial.println("ID of 0xFF probably means a bad address, a BMP 180 or BMP 085");
-  Serial.println("ID of 0x56-0x58 represents a BMP 280");
-  Serial.println("ID of 0x60 represents a BME 280");
-  Serial.println("ID of 0x61 represents a BME 680");
+  //Serial.println("ID of 0xFF probably means a bad address, a BMP 180 or BMP 085");
+  //Serial.println("ID of 0x56-0x58 represents a BMP 280");
+  //Serial.println("ID of 0x60 represents a BME 280");
+  //Serial.println("ID of 0x61 represents a BME 680");
   
   status = 0;
   while (status == 0){
