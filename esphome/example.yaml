@@ -1,0 +1,32 @@
+esphome:
+  name: "poc-modbus"
+  friendly_name: PoC-Modbus
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+uart:
+  id: uart_bus
+  tx_pin: GPIO25
+  rx_pin: GPIO27
+  # Adjust to your own needs
+  # baud_rate: 19200
+  # stop_bits: 1
+
+modbus:
+  id: modbus_1
+  uart_id: uart_bus
+  send_wait_time: 200ms
+  flow_control_pin: GPIO26
+
+# Add multiple packages modbus1..modbus255 for each Eastron SDM Energy Meter
+packages:
+  meter1: !include
+    url: github://KAMAMI-Labs/KAmodESP32-POW-RS485/
+    file: esphome/sdm_meter_template.yaml
+    ref: main
+    vars:
+      address: "1"
+      modbus_id: "modbus_1"
