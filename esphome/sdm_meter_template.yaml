@@ -1,0 +1,83 @@
+# Base package to be included for each Eastron SDM meter.
+# Check file example.yaml for usage example.
+
+substitutions:
+  address: "1"
+  modbus_id: "modbus_1"
+
+sensor:
+  - platform: sdm_meter
+    modbus_id: ${modbus_id}
+    address: ${address}
+    update_interval: 15s
+    phase_a:
+      voltage:
+        name: "Meter ${address} L1 Voltage"
+      current:
+        name: "Meter ${address} L1 Current"
+      active_power:
+        name: "Meter ${address} L1 Active Power"
+      apparent_power:
+        name: "Meter ${address} L1 Apparent Power"
+      reactive_power:
+        name: "Meter ${address} L1 Reactive Power"
+      power_factor:
+        name: "Meter ${address} L1 Power Factor"
+      phase_angle:
+        name: "Meter ${address} L1 Phase Angle"
+    phase_b:
+      voltage:
+        name: "Meter ${address} L2 Voltage"
+        disabled_by_default: true
+      current:
+        name: "Meter ${address} L2 Current"
+        disabled_by_default: true
+      active_power:
+        name: "Meter ${address} L2 Active Power"
+        disabled_by_default: true
+      apparent_power:
+        name: "Meter ${address} L2 Apparent Power"
+        disabled_by_default: true
+      reactive_power:
+        name: "Meter ${address} L2 Reactive Power"
+        disabled_by_default: true
+      power_factor:
+        name: "Meter ${address} L2 Power Factor"
+        disabled_by_default: true
+      phase_angle:
+        name: "Meter ${address} L2 Phase Angle"
+        disabled_by_default: true
+    phase_c:
+      voltage:
+        name: "Meter ${address} L3 Voltage"
+        disabled_by_default: true
+      current:
+        name: "Meter ${address} L3 Current"
+        disabled_by_default: true
+      active_power:
+        name: "Meter ${address} L3 Active Power"
+        disabled_by_default: true
+      apparent_power:
+        name: "Meter ${address} L3 Apparent Power"
+        disabled_by_default: true
+      reactive_power:
+        name: "Meter ${address} L3 Reactive Power"
+        disabled_by_default: true
+      power_factor:
+        name: "Meter ${address} L3 Power Factor"
+        disabled_by_default: true
+      phase_angle:
+        name: "Meter ${address} L3 Phase Angle"
+        disabled_by_default: true
+    frequency:
+      name: "Meter ${address} Grid Frequency"
+    total_power:
+      name: "Meter ${address} Total Active Power"
+    import_active_energy:
+      name: "Meter ${address} Energy Import Active"
+    export_active_energy:
+      name: "Meter ${address} Energy Export Active"
+    import_reactive_energy:
+      name: "Meter ${address} Energy Import Reactive"
+    export_reactive_energy:
+      name: "Meter ${address} Energy Export Reactive"
